@@ -1,0 +1,29 @@
+<h3>Edit a contact for <%= @provider.name %></h3>
+
+<%= render 'form_errors' %>
+
+<%= form_with(
+      scope: :contact,
+      url: provider_contact_path,
+      class: 'uk-form-horizontal uk-form-width-large',
+      model: @contact,
+      local: true
+    ) do |form|
+%>
+  <p>
+    <%= form.label :name, class: 'uk-form-label' %><br>
+    <%= form.text_field :name, class: 'uk-input' %>
+  </p>
+  <p>
+    <%= form.label :mail, class: 'uk-form-label' %><br>
+    <%= form.text_field :mail, class: 'uk-input' %>
+  </p>
+  <p>
+    <%= form.label :phone, class: 'uk-form-label' %><br>
+    <%= form.text_field :phone, class: 'uk-input' %>
+  </p>
+  <p>
+    <%= form.hidden_field :provider_id, value: @provider.id, class: 'uk-input' %>
+    <%= form.submit class: 'uk-button uk-button-default uk-margin' %>
+  </p>
+<% end %>

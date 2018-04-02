@@ -1,0 +1,14 @@
+<% if @contact.errors.any? %>
+  <div id="error_explanation" class="uk-alert-warning" uk-alert>
+    <a class="uk-alert-close" uk-close></a>
+    <p>
+      <%= pluralize(@contact.errors.count, "error") %> prohibited
+      this provider from being saved:
+    </p>
+    <ul>
+      <% @contact.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
