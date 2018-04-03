@@ -1,3 +1,22 @@
 <h3>Edit provider</h3>
 
-<%= render 'form' %>
+<%= form_with(
+      scope: :provider,
+      url: provider_path(@provider),
+      class: 'uk-form-horizontal uk-form-width-large',
+      model: @provider,
+      local: true
+    ) do |form|
+%>
+  <p>
+    <%= form.label :name, class: 'uk-form-label' %><br>
+    <%= form.text_field :name, class: 'uk-input' %>
+  </p>
+  <p>
+    <%= form.label :address, class: 'uk-form-label' %><br>
+    <%= form.text_field :address, class: 'uk-input' %>
+  </p>
+  <p>
+    <%= form.submit class: 'uk-button uk-button-default uk-margin' %>
+  </p>
+<% end %>
