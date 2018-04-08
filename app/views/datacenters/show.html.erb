@@ -1,7 +1,35 @@
 <p class="uk-align-right">
+  <span uk-icon="icon: plus-circle"></span>
+  <%= link_to 'Add room', new_datacenter_room_path(@datacenter), class: 'uk-icon-link' %>
   <span uk-icon="icon: pencil"></span>
   <%= link_to 'Edit', edit_datacenter_path(@datacenter), class: 'uk-icon-link' %>
   <span uk-icon="icon: trash"></span>
   <%= link_to 'Delete', datacenter_path(@datacenter), method: :delete, class: 'uk-icon-link', data: { confirm: 'Are you sure?' } %>
 </p>
 <h3><%= @datacenter.name %></h3>
+<p>
+</p>
+<table class="uk-table uk-table-striped">
+  <thead>
+    <tr>
+      <th>Room</th>
+      <th>Action</th>
+    </tr>
+  </thead>
+<% @datacenter.rooms.each do |room| %>
+  <tr>
+    <td><%= room.name %></td>
+    <td>
+      <%= link_to edit_datacenter_room_path(datacenter_id: @datacenter.id, id: room.id), class: 'uk-icon-link' do %>
+        <span uk-icon="icon: pencil"></span>
+      <% end %>
+      <%= link_to datacenter_room_path(datacenter_id: @datacenter.id, id: room.id),
+                  class: 'uk-icon-link',
+                  method: :delete,
+                  data: { confirm: 'Are you sure?' } do %>
+        <span uk-icon="icon: trash"></span>
+      <% end %>
+    </td>
+  </tr>
+<% end %>
+</table>

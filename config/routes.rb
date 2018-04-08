@@ -5,5 +5,9 @@ Rails.application.routes.draw do
     resources :contacts
   end
 
-  resources :datacenters
+  resources :datacenters do
+    resources :rooms do
+      resources :racks
+    end
+  end
 end

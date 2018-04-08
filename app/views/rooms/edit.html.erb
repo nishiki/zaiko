@@ -1,0 +1,21 @@
+<h3>Edit a room for <%= @datacenter.name %></h3>
+
+<%= render 'form_errors' %>
+
+<%= form_with(
+      scope: :room,
+      url: datacenter_room_path,
+      class: 'uk-form-horizontal uk-form-width-large',
+      model: @room,
+      local: true
+    ) do |form|
+%>
+  <p>
+    <%= form.label :name, class: 'uk-form-label' %><br>
+    <%= form.text_field :name, class: 'uk-input' %>
+  </p>
+  <p>
+    <%= form.hidden_field :datacenter_id, value: @datacenter.id, class: 'uk-input' %>
+    <%= form.submit class: 'uk-button uk-button-default uk-margin' %>
+  </p>
+<% end %>
