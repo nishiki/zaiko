@@ -1,0 +1,14 @@
+<% if @datacenter.errors.any? %>
+  <div id="error_explanation" class="uk-alert-warning" uk-alert>
+    <a class="uk-alert-close" uk-close></a>
+    <p>
+      <%= pluralize(@datacenter.errors.count, "error") %> prohibited
+      this datacenter from being saved:
+    </p>
+    <ul>
+      <% @datacenter.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>

@@ -4,4 +4,6 @@ Rails.application.routes.draw do
   resources :providers do
     resources :contacts
   end
+
+  resources :datacenters
 end

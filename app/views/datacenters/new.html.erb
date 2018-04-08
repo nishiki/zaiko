@@ -1,0 +1,20 @@
+<h3>Add a new datacenter</h3>
+
+<%= render 'form_errors' %>
+
+<%= form_with(
+      scope: :datacenter,
+      url: datacenters_path,
+      class: 'uk-form-horizontal uk-form-width-large',
+      model: @datacenter,
+      local: true
+    ) do |form|
+%>
+  <p>
+    <%= form.label :name, class: 'uk-form-label' %><br>
+    <%= form.text_field :name, class: 'uk-input' %>
+  </p>
+  <p>
+    <%= form.submit class: 'uk-button uk-button-default uk-margin' %>
+  </p>
+<% end %>

@@ -1,0 +1,19 @@
+<h3>Datacenters</h3>
+<p class="uk-align-right">
+  <span uk-icon="icon: plus-circle"></span> 
+  <%= link_to 'Add datacenter', new_datacenter_path(@datacenter), class: 'uk-icon-link' %>
+</p>
+<table class="uk-table uk-table-striped">
+  <thead>
+    <tr>
+      <th>Name</th>
+    </tr>
+  </thead>
+<% @datacenters.each do |datacenter| %>
+  <tr>
+    <td>
+      <%= link_to datacenter.name, datacenter_path(datacenter) %>
+    </td>
+  </tr>
+<% end %>
+</table>
